@@ -95,17 +95,25 @@
     <p id="status" role="status">Setup mode — messages are not sent or saved yet.</p>
   </main>
   <footer>BroAI · Personal AI project</footer>
-  <script>
-    document.getElementById("chatForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const message = document.getElementById("message").value.trim();
-      const status = document.getElementById("status");
-      if (!message) {
-        status.textContent = "Type a message first.";
-        return;
-      }
-      status.textContent = "Website test successful. AI connection is not set up yet.";
-    });
-  </script>
+  
+<script>
+const form = document.getElementById("chatForm");
+const input = document.getElementById("message");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const message = input.value.trim();
+
+  if (!message) {
+    status.textContent = "Type a message first.";
+    return;
+  }
+
+  status.textContent =
+    "Website test successful. AI connection is not set up yet.";
+});
+</script>
 </body>
 </html>
