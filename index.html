@@ -97,10 +97,12 @@
   </main>
   <footer>BroAI · Personal AI project</footer>
   
+
 <script>
 const form = document.getElementById("chatForm");
 const input = document.getElementById("message");
 const status = document.getElementById("status");
+const chat = document.getElementById("chatMessages");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -112,8 +114,16 @@ form.addEventListener("submit", function (event) {
     return;
   }
 
-  status.textContent =
-    "Website test successful. AI connection is not set up yet.";
+  const bubble = document.createElement("div");
+  bubble.textContent = message;
+
+  bubble.style.cssText =
+    "background:#303b55;padding:14px 16px;margin:12px 0;" +
+    "border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;";
+
+  chat.appendChild(bubble);
+  input.value = "";
+  status.textContent = "Message displayed. AI connection is not set up yet.";
 });
 </script>
 </body>
