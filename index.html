@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101522">
+  <title>BroAI — Your Personal AI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101522;
+      color: #f4f6fc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #293044;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header span { color: #8c9eff; }
+    main {
+      width: min(700px, 100%);
+      margin: auto;
+      padding: 24px 18px;
+      flex: 1;
+    }
+    .welcome { margin: 12vh 0 32px; }
+    h1 { font-size: 32px; margin-bottom: 10px; }
+    p { color: #aeb7ca; line-height: 1.6; }
+    .notice {
+      background: #1a2233;
+      border: 1px solid #303b55;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    .composer {
+      display: flex;
+      gap: 10px;
+      background: #1a2233;
+      border: 1px solid #303b55;
+      padding: 10px;
+      border-radius: 16px;
+    }
+    textarea {
+      flex: 1;
+      min-width: 0;
+      resize: vertical;
+      min-height: 48px;
+      max-height: 150px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white;
+      font: inherit;
+      padding: 12px 6px;
+    }
+    button {
+      border: 0;
+      border-radius: 12px;
+      background: #788bff;
+      color: #101522;
+      font-weight: bold;
+      padding: 0 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 18px;
+      color: #7f8ba4;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header><span>Bro</span>AI</header>
+  <main>
+    <section class="welcome">
+      <h1>Your AI. Your space.</h1>
+      <p>A personal chatbot project built step by step.</p>
+    </section>
+    <div class="notice">
+      <strong>Welcome to BroAI</strong>
+      <p>The website interface is ready to begin. The AI model and secure sign-in will be connected in later steps.</p>
+    </div>
+    <form class="composer" id="chatForm">
+      <textarea id="message" placeholder="Message BroAI..." aria-label="Your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="status" role="status">Setup mode — messages are not sent or saved yet.</p>
+  </main>
+  <footer>BroAI · Personal AI project</footer>
+  <script>
+    document.getElementById("chatForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const message = document.getElementById("message").value.trim();
+      const status = document.getElementById("status");
+      if (!message) {
+        status.textContent = "Type a message first.";
+        return;
+      }
+      status.textContent = "Website test successful. AI connection is not set up yet.";
+    });
+  </script>
+</body>
+</html>
